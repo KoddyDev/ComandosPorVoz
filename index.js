@@ -43,4 +43,4 @@ client.on('speech', msg => {
   }
 })
 
-client.login("ODcyNjE1MTY4MzkwMTAzMDgy.YQscNA.E0m6kt-RHX7Z0cCyUSbc0UPQlJ8")
+client.login("Token do seu bot aqui")
