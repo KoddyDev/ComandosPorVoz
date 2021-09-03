@@ -2,7 +2,9 @@ const { Client, Message } = require('discord.js');
 const { DiscordSR } = require('discord-speech-recognition');
 
 const client = new Client();
-const discordSR = new DiscordSR(client);
+const discordSR = new DiscordSR(client, {
+  lang: 'pt'
+});
 
 client.on('message', msg => {
   if (msg.member?.voice.channel && msg.content === "entrar") {
@@ -44,4 +46,4 @@ client.on('speech', msg => {
   }
 })
 
-client.login("ODcyNjE1MTY4MzkwMTAzMDgy.YQscNA.WCKgIonoc1DOS9X2BGOexIOyyF0")
+client.login("Token do seu bot aqui.")
