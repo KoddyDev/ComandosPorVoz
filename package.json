@@ -1,0 +1,13 @@
+{
+  "name": "bot1",
+  "version": "1.0.0",
+  "main": "client.js",
+  "repository": "https://github.com/KoddyDev/ComandosPorVoz",
+  "author": "viniciusd3v",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/opus": "^0.6.0",
+    "discord-speech-recognition": "^1.0.6",
+    "discord.js": "12.5.1"
+  }
+}
