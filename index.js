@@ -11,14 +11,36 @@ client.on('message', msg => {
 })
 
 client.on('speech', msg => {
-  console.log(msg.content)
-  if(msg.content?.toLowerCase() === "bom dia") {
-    msg.author.send("bom dia rapaiz")
-  }
-  if(msg.content?.toLowerCase() === "tchau") {
-    msg.author.send("flw")
-    msg.member.voice.channel.leave()
+  const array = [
+    {
+      message: "bom dia",
+      resposta: 'bom dia rapaiz'
+    },
+    {
+      message: "oi",
+      resposta: 'oi, ja tomou um café?'
+    },
+    {
+      message: "já sim",
+      resposta: 'que bom'
+    },
+    {
+      message: "tchau",
+      resposta: 'flw, até a proxima',
+      trigger: function(msg){ msg.member.voice.channel.leave()}
+    },
+    
+  ]
+
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if(msg.content?.toLocaleLowerCase().includes(element.message)) {
+      msg.author.send(element.resposta)
+      if(element.trigger) {
+        element.trigger(msg)
+      }
+    }
   }
 })
 
-client.login("Token do Bot")
+client.login("ODcyNjE1MTY4MzkwMTAzMDgy.YQscNA.E0m6kt-RHX7Z0cCyUSbc0UPQlJ8")
