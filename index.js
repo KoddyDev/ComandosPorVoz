@@ -5,7 +5,7 @@ const client = new Client();
 const discordSR = new DiscordSR(client);
 
 client.on('message', msg => {
-  if (msg.member?.voice.channel) {
+  if (msg.member?.voice.channel && msg.content === "entrar") {
     msg.member.voice.channel.join();
   }
 })
@@ -34,6 +34,7 @@ client.on('speech', msg => {
 
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
+    if(msg.content === null) return msg.author.send("Não consegui identificar, repita por favor?")
     if(msg.content?.toLocaleLowerCase().includes(element.message)) {
       msg.author.send(element.resposta)
       if(element.trigger) {
@@ -43,4 +44,4 @@ client.on('speech', msg => {
   }
 })
 
-client.login("Token do seu bot aqui")
+client.login("ODcyNjE1MTY4MzkwMTAzMDgy.YQscNA.WCKgIonoc1DOS9X2BGOexIOyyF0")
